@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <h2>Quick AI</h2>
+      </div>
+      <div class="status-indicator" id="status-indicator">
+        <span class="status-dot"></span>
+        <span class="status-text">Ready</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <div id="notification" class="notification" style="display: none;"></div>
+
+      <button class="activate-btn" id="activate-btn">
+        <span class="btn-icon">✨</span>
+        <span class="btn-text">Activate Quick AI</span>
+        <span class="btn-hint">Alt+Q</span>
+      </button>
+
+      <div class="recent-section">
+        <h3>Recent Templates</h3>
+        <div class="recent-templates" id="recent-templates">
+          <div class="template-skeleton"></div>
+          <div class="template-skeleton"></div>
+          <div class="template-skeleton"></div>
+        </div>
+      </div>
+
+      <div class="quick-links">
+        <button class="link-btn" id="templates-btn">
+          <span>📝</span>
+          <span>Templates</span>
+        </button>
+        <button class="link-btn" id="history-btn">
+          <span>📜</span>
+          <span>History</span>
+        </button>
+        <button class="link-btn" id="settings-btn">
+          <span>⚙️</span>
+          <span>Settings</span>
+        </button>
+      </div>
+
+      <div class="api-section">
+        <div class="api-status" id="api-status">
+          <span class="api-icon">🔑</span>
+          <span class="api-text">API Key Not Set</span>
+        </div>
+        <input type="password" id="api-key" class="api-input" placeholder="Enter Gemini API Key" style="display: none;">
+        <button id="save-key" class="save-btn" style="display: none;">Save Key</button>
+        <button id="configure-key" class="configure-btn">Configure API Key</button>
+      </div>
+
+      <div class="shortcuts-hint">
+        <span>💡</span>
+        <span>Press <kbd>Alt+Q</kbd> for Quick AI or <kbd>Alt+C</kbd> for Chat</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

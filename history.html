@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Quick AI - History</title>
+  <link rel="stylesheet" href="styles/pages.css">
+</head>
+<body>
+  <div class="page-container">
+    <div class="page-header">
+      <div class="header-left">
+        <h1>📜 History</h1>
+        <p class="header-subtitle">View and manage your AI interaction history</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn-secondary" id="help-btn" data-tooltip="Open help page">❓ Help</button>
+        <button class="btn-secondary" id="export-history" data-tooltip="Export all history">📄 Export</button>
+        <button class="btn-secondary" id="clear-history" data-tooltip="Clear current tab history">🗑️ Clear All</button>
+      </div>
+    </div>
+
+    <div class="page-content">
+      <!-- Tabs -->
+      <div class="tabs-container">
+        <button class="tab-btn active" data-tab="quick">⚡ Quick AI</button>
+        <button class="tab-btn" data-tab="chat">💬 Chat</button>
+      </div>
+
+      <!-- Quick AI Tab -->
+      <div class="tab-content active" data-content="quick">
+        <div class="content-toolbar">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-quick" placeholder="Search Quick AI history...">
+          </div>
+          <div class="toolbar-actions">
+            <select id="template-filter" class="filter-select">
+              <option value="">All Templates</option>
+            </select>
+            <select id="date-filter-quick" class="filter-select">
+              <option value="">All Time</option>
+              <option value="today">Today</option>
+              <option value="week">This Week</option>
+              <option value="month">This Month</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="history-container" id="quick-container"></div>
+
+        <div class="empty-state" id="quick-empty" style="display: none;">
+          <div class="empty-icon">⚡</div>
+          <h3>No Quick AI history</h3>
+          <p>Your template-based interactions will appear here</p>
+        </div>
+      </div>
+
+      <!-- Chat Tab -->
+      <div class="tab-content" data-content="chat">
+        <div class="content-toolbar">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-chat" placeholder="Search chat history...">
+          </div>
+          <div class="toolbar-actions">
+            <select id="date-filter-chat" class="filter-select">
+              <option value="">All Time</option>
+              <option value="today">Today</option>
+              <option value="week">This Week</option>
+              <option value="month">This Month</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="history-container" id="chat-container"></div>
+
+        <div class="empty-state" id="chat-empty" style="display: none;">
+          <div class="empty-icon">💬</div>
+          <h3>No chat history</h3>
+          <p>Your AI conversations will appear here</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="marked.min.js"></script>
+  <script src="history.js"></script>
+</body>
+</html>

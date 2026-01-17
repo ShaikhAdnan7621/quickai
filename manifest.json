@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Quick AI",
+  "version": "1.0.0",
+  "description": "AI-powered text editing with Gemini API",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "clipboardRead",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["marked.min.js", "scripts/content-core.js", "scripts/content-quick.js", "scripts/content-chat.js"],
+      "css": ["styles/quick-popup.css", "styles/chat-popup.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Quick AI"
+  },
+  "commands": {
+    "activate-quickai": {
+      "suggested_key": {
+        "default": "Alt+Q"
+      },
+      "description": "Quick AI - Process Text"
+    },
+    "activate-chat": {
+      "suggested_key": {
+        "default": "Alt+C"
+      },
+      "description": "Quick AI - Chat Mode"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["popup.html", "popup.css", "popup.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

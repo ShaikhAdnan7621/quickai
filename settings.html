@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Quick AI - Settings</title>
+  <link rel="stylesheet" href="styles/pages.css">
+</head>
+<body>
+  <div class="page-container">
+    <div class="page-header">
+      <div class="header-left">
+        <h1>⚙️ Settings</h1>
+        <p class="header-subtitle">Configure Quick AI to your preferences</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn-secondary" id="help-btn" data-tooltip="Open help page">❓ Help</button>
+      </div>
+    </div>
+
+    <div class="page-content">
+      <!-- Stats Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📝</div>
+          <div class="stat-value" id="templates-count">0</div>
+          <div class="stat-label">Templates</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-value" id="quick-count">0</div>
+          <div class="stat-label">Quick AI History</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💬</div>
+          <div class="stat-value" id="chat-count">0</div>
+          <div class="stat-label">Chat History</div>
+        </div>
+      </div>
+
+      <!-- API Configuration -->
+      <div class="section-group">
+        <h3 class="section-title">🔑 API Configuration</h3>
+        <div class="settings-card">
+          <div class="form-group">
+            <label>Gemini API Key</label>
+            <div class="api-key-display">
+              <input type="password" id="api-key-display" readonly placeholder="Not configured">
+              <button class="btn-icon" id="toggle-key" data-tooltip="Show/Hide key">👁️</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" id="new-api-key" placeholder="Enter new API key">
+            <div class="form-hint">Get your free API key from <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a></div>
+          </div>
+          <div class="button-group">
+            <button class="btn-primary" id="save-api-key" data-tooltip="Save API key">💾 Save API Key</button>
+            <button class="btn-secondary" id="test-api-key" data-tooltip="Test connection">🔌 Test Connection</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Model Settings -->
+      <div class="section-group">
+        <h3 class="section-title">🤖 AI Model Settings</h3>
+        <div class="settings-card">
+          <div class="form-group">
+            <label for="model-select">Default Model</label>
+            <select id="model-select" class="filter-select">
+              <option value="gemini-3-flash-preview">Gemini 3 Flash</option>
+              <option value="gemini-2.5-pro">Gemini 2.5 Pro</option>
+              <option value="gemini-2.5-flash">Gemini 2.5 Flash (Recommended)</option>
+              <option value="gemini-2.5-flash-lite">Gemini 2.5 Flash-Lite</option>
+            </select>
+            <div class="form-hint">💡 Gemini 2.5 Flash provides the best balance of speed and quality</div>
+          </div>
+          <button class="btn-primary" id="save-model" data-tooltip="Save model preference">💾 Save Model</button>
+        </div>
+      </div>
+
+      <!-- Interface Settings -->
+      <div class="section-group">
+        <h3 class="section-title">🎨 Interface Settings</h3>
+        <div class="settings-card">
+          <div class="form-group">
+            <label for="popup-position">Popup Position</label>
+            <select id="popup-position" class="filter-select">
+              <option value="cursor">At Cursor</option>
+              <option value="center">Center of Screen</option>
+              <option value="remember">Remember Last Position</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="popup-size">Default Popup Size</label>
+            <select id="popup-size" class="filter-select">
+              <option value="small">Small (600x400)</option>
+              <option value="medium">Medium (800x600)</option>
+              <option value="large">Large (1000x700)</option>
+            </select>
+          </div>
+          <button class="btn-primary" id="save-interface" data-tooltip="Save interface settings">💾 Save Interface</button>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="section-group">
+        <h3 class="section-title">🔗 Quick Links</h3>
+        <div class="quick-links-grid">
+          <a href="templates.html" class="quick-link-card">
+            <div class="quick-link-icon">📝</div>
+            <div class="quick-link-title">Manage Templates</div>
+            <div class="quick-link-desc">Create and edit templates</div>
+          </a>
+          <a href="history.html" class="quick-link-card">
+            <div class="quick-link-icon">📜</div>
+            <div class="quick-link-title">View History</div>
+            <div class="quick-link-desc">Browse past interactions</div>
+          </a>
+          <a href="https://aistudio.google.com/app/apikey" target="_blank" class="quick-link-card">
+            <div class="quick-link-icon">🔑</div>
+            <div class="quick-link-title">Get API Key</div>
+            <div class="quick-link-desc">Google AI Studio</div>
+          </a>
+          <a href="chrome://extensions/shortcuts" target="_blank" class="quick-link-card">
+            <div class="quick-link-icon">⌨️</div>
+            <div class="quick-link-title">Keyboard Shortcuts</div>
+            <div class="quick-link-desc">Configure shortcuts</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Data Management -->
+      <div class="section-group">
+        <h3 class="section-title">🗂️ Data Management</h3>
+        <div class="settings-card">
+          <div class="button-group">
+            <button class="btn-secondary" id="export-settings" data-tooltip="Export all settings">📤 Export Settings</button>
+            <button class="btn-secondary" id="import-settings" data-tooltip="Import settings">📥 Import Settings</button>
+          </div>
+          <input type="file" id="import-file" accept=".json" style="display: none;">
+        </div>
+      </div>
+
+      <!-- Reset Options -->
+      <div class="section-group">
+        <h3 class="section-title">🔄 Reset Options</h3>
+        <div class="settings-card">
+          <div class="reset-grid">
+            <div class="reset-item">
+              <div class="reset-info">
+                <strong>Reset Templates</strong>
+                <p>Restore default templates</p>
+              </div>
+              <button class="btn-danger-outline" id="reset-templates" data-tooltip="Reset to default templates">🔄 Reset</button>
+            </div>
+            <div class="reset-item">
+              <div class="reset-info">
+                <strong>Clear Quick AI History</strong>
+                <p>Delete all Quick AI interactions</p>
+              </div>
+              <button class="btn-danger-outline" id="clear-quick-history" data-tooltip="Clear Quick AI history">🗑️ Clear</button>
+            </div>
+            <div class="reset-item">
+              <div class="reset-info">
+                <strong>Clear Chat History</strong>
+                <p>Delete all chat conversations</p>
+              </div>
+              <button class="btn-danger-outline" id="clear-chat-history" data-tooltip="Clear chat history">🗑️ Clear</button>
+            </div>
+            <div class="reset-item">
+              <div class="reset-info">
+                <strong>Reset All Settings</strong>
+                <p>Restore all defaults (keeps API key)</p>
+              </div>
+              <button class="btn-danger" id="reset-all" data-tooltip="Reset everything to defaults">⚠️ Reset All</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>
